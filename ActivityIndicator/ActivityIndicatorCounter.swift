@@ -12,6 +12,7 @@ final class ActivityIndicatorCounter {
     
     private var startNumber = 0
     private var isStarted = false
+    private let lock = NSLock()
     private weak var controller: ActivityIndicatorCounterController?
     
     init(controller: ActivityIndicatorCounterController) {
@@ -19,6 +20,9 @@ final class ActivityIndicatorCounter {
     }
     
     func start() {
+        lock.lock()
+        defer { lock.unlock() }
+        
         startNumber += 1
         if !isStarted {
             isStarted = true
@@ -27,6 +31,9 @@ final class ActivityIndicatorCounter {
     }
     
     func stop() {
+        lock.lock()
+        defer { lock.unlock() }
+        
         /// if more then 0
         if startNumber > 0 {
             startNumber -= 1
