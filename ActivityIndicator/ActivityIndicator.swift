@@ -8,7 +8,13 @@
 
 import UIKit
 
-class ActivityIndicator: UIView {
-    func start(in presenter: ActivityIndicatorPresenter) {}
-    func stop() {}
+protocol ActivityIndicator {
+    var activityView: UIView { get }
+    func start()
+    func stop()
+}
+extension ActivityIndicator where Self: UIView {
+    var activityView: UIView {
+        return self
+    }
 }

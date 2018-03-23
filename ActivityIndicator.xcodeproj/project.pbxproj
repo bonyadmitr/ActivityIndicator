@@ -15,7 +15,10 @@
 		CE197ECE2064CA7500C7A650 /* ActivityIndicatorCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE197ECD2064CA7500C7A650 /* ActivityIndicatorCounter.swift */; };
 		CEC2BD442064D5AF004949D5 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2BD432064D5AF004949D5 /* ActivityIndicator.swift */; };
 		CEC2BD462064D5DF004949D5 /* ActivityIndicatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2BD452064D5DF004949D5 /* ActivityIndicatorPresenter.swift */; };
-		CEC2BD482064D646004949D5 /* ActivityIndicatorImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2BD472064D646004949D5 /* ActivityIndicatorImp.swift */; };
+		CEC2BD482064D646004949D5 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2BD472064D646004949D5 /* ActivityIndicatorView.swift */; };
+		CEC2BD4B20655777004949D5 /* UIBlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2BD4A20655777004949D5 /* UIBlockable.swift */; };
+		CEC2BD4D20655793004949D5 /* ActivityIndicatorCounterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2BD4C20655793004949D5 /* ActivityIndicatorCounterController.swift */; };
+		CEC2BD4F206558F1004949D5 /* ActivityIndicatorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2BD4E206558F1004949D5 /* ActivityIndicatorObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +32,10 @@
 		CE197ECD2064CA7500C7A650 /* ActivityIndicatorCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorCounter.swift; sourceTree = "<group>"; };
 		CEC2BD432064D5AF004949D5 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		CEC2BD452064D5DF004949D5 /* ActivityIndicatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorPresenter.swift; sourceTree = "<group>"; };
-		CEC2BD472064D646004949D5 /* ActivityIndicatorImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorImp.swift; sourceTree = "<group>"; };
+		CEC2BD472064D646004949D5 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		CEC2BD4A20655777004949D5 /* UIBlockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockable.swift; sourceTree = "<group>"; };
+		CEC2BD4C20655793004949D5 /* ActivityIndicatorCounterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorCounterController.swift; sourceTree = "<group>"; };
+		CEC2BD4E206558F1004949D5 /* ActivityIndicatorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +72,12 @@
 				CE197EBF2064CA5E00C7A650 /* Main.storyboard */,
 				CE197EBD2064CA5E00C7A650 /* ViewController.swift */,
 				CEC2BD452064D5DF004949D5 /* ActivityIndicatorPresenter.swift */,
+				CEC2BD4A20655777004949D5 /* UIBlockable.swift */,
 				CEC2BD432064D5AF004949D5 /* ActivityIndicator.swift */,
 				CE197ECD2064CA7500C7A650 /* ActivityIndicatorCounter.swift */,
-				CEC2BD472064D646004949D5 /* ActivityIndicatorImp.swift */,
+				CEC2BD4C20655793004949D5 /* ActivityIndicatorCounterController.swift */,
+				CEC2BD472064D646004949D5 /* ActivityIndicatorView.swift */,
+				CEC2BD4E206558F1004949D5 /* ActivityIndicatorObject.swift */,
 			);
 			path = ActivityIndicator;
 			sourceTree = "<group>";
@@ -156,10 +165,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC2BD4B20655777004949D5 /* UIBlockable.swift in Sources */,
+				CEC2BD4D20655793004949D5 /* ActivityIndicatorCounterController.swift in Sources */,
 				CEC2BD442064D5AF004949D5 /* ActivityIndicator.swift in Sources */,
 				CE197ECE2064CA7500C7A650 /* ActivityIndicatorCounter.swift in Sources */,
 				CEC2BD462064D5DF004949D5 /* ActivityIndicatorPresenter.swift in Sources */,
-				CEC2BD482064D646004949D5 /* ActivityIndicatorImp.swift in Sources */,
+				CEC2BD4F206558F1004949D5 /* ActivityIndicatorObject.swift in Sources */,
+				CEC2BD482064D646004949D5 /* ActivityIndicatorView.swift in Sources */,
 				CE197EBE2064CA5E00C7A650 /* ViewController.swift in Sources */,
 				CE197EBC2064CA5E00C7A650 /* AppDelegate.swift in Sources */,
 			);
@@ -299,7 +311,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ActivityIndicator/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ActivityIndicator/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.by.ActivityIndicator;
@@ -314,7 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ActivityIndicator/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ActivityIndicator/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.by.ActivityIndicator;
