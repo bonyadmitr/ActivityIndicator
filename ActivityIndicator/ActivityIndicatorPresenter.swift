@@ -14,39 +14,9 @@ protocol ActivityIndicatorPresenter {
 //extension UIViewController: ActivityIndicatorPresenter {
 extension ActivityIndicatorPresenter where Self: UIViewController {
     func present(activityIndicator: ActivityIndicator) {
-        activityIndicator.frame = view.bounds
-        activityIndicator.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        view.addSubview(activityIndicator)
+        activityIndicator.activityView.frame = view.bounds
+        activityIndicator.activityView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        activityIndicator.start()
+        view.addSubview(activityIndicator.activityView)
     }
 }
-
-protocol UIBlockable: ActivityIndicatorPresenter {
-    var activityIndicator: ActivityIndicator { get }
-    func showIndicator()
-    func hideIndicator()
-}
-extension UIBlockable {
-    func showIndicator() {
-        activityIndicator.start(in: self)
-    }
-    
-    func hideIndicator() {
-        activityIndicator.stop()
-    }
-}
-
-protocol ActivityIndicatorCounterController: class {
-    var activityIndicatorCounter: ActivityIndicatorCounter { get }
-    func showIndicator()
-    func hideIndicator()
-}
-
-//extension ActivityIndicatorCounterController where Self: UIViewController {
-////    func showIndicator() {
-////        
-////    }
-////    
-////    func hideIndicator() {
-//////        hideSpiner()
-////    }
-//}

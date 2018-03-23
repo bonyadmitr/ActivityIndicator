@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ActivityIndicatorImp: ActivityIndicator {
+final class ActivityIndicatorView: UIView {
     
     private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
@@ -23,6 +23,7 @@ final class ActivityIndicatorImp: ActivityIndicator {
     }
     
     private func setup() {
+        backgroundColor = #colorLiteral(red: 0.661552785, green: 0.661552785, blue: 0.661552785, alpha: 0.7959672095)
         activityIndicator.hidesWhenStopped = true
         activityIndicator.center = center
         addSubview(activityIndicator)
@@ -32,15 +33,20 @@ final class ActivityIndicatorImp: ActivityIndicator {
         super.layoutSubviews()
         activityIndicator.center = center
     }
-    
-    override func start(in presenter: ActivityIndicatorPresenter) {
+}
+extension ActivityIndicatorView: ActivityIndicator {
+    func start() {
         activityIndicator.startAnimating()
-        presenter.present(activityIndicator: self)
-        UIApplication.shared.beginIgnoringInteractionEvents()
+        alpha = 0
+        UIView.animate(withDuration: 0.3) { 
+            self.alpha = 1
+        }
     }
     
-    override func stop() { 
-        activityIndicator.stopAnimating();
-        UIApplication.shared.endIgnoringInteractionEvents();
+    func stop() { 
+        activityIndicator.stopAnimating()
+        UIView.animate(withDuration: 0.3) { 
+            self.alpha = 0
+        }
     }
 }

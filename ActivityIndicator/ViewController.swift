@@ -10,30 +10,30 @@ import UIKit
 
 class ViewController: UIViewController, ActivityIndicatorCounterController, UIBlockable {
     
-    lazy var activityIndicator: ActivityIndicator = ActivityIndicatorImp()
+    /// or 1
+//    lazy var activityIndicator: ActivityIndicator = ActivityIndicatorView()
+    /// or 2
+    lazy var activityIndicator: ActivityIndicator = ActivityIndicatorObject()
+    
     lazy var activityIndicatorCounter = ActivityIndicatorCounter(controller: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicatorCounter.start()
-        activityIndicatorCounter.start()
+        let start: Double = 2
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in 
+        DispatchQueue.main.asyncAfter(deadline: .now() + start) { [weak self] in 
+            self?.activityIndicatorCounter.start()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + start + 1) { [weak self] in
+            /// first start, then stop, to continue activityIndicator 
+            self?.activityIndicatorCounter.start()
             self?.activityIndicatorCounter.stop()
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in 
-            self?.activityIndicatorCounter.stop()
+        DispatchQueue.main.asyncAfter(deadline: .now() + start + 2) { [weak self] in 
             self?.activityIndicatorCounter.stop()
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
-
